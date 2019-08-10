@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Florida Storms WordPress Blog Demo',
+    title: 'Florida Storms WordPress Archive',
     author: 'Ray Hawthorne',
     copyright: 2019
   },
@@ -8,7 +8,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'floridastorms.pbsweather.org',
+        baseUrl: 'floridastorms.org',
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,
