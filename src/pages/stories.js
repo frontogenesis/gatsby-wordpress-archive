@@ -6,10 +6,14 @@ import Layout from '../components/layout'
 import '../styles/blog.css'
 import Head from '../components/head'
 
-const BlogPage = () => {
+const StoryPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allWordpressPost {
+      allWordpressPost( filter: { 
+        status: { 
+          eq: "publish" 
+        }
+      }) {
         edges {
           node {
             title
@@ -20,18 +24,12 @@ const BlogPage = () => {
             excerpt
             slug
             id
+            status
           }
         }
       }
     }
   `)
-
-// const str = edge.node.date
-// const date = moment(str);
-// const dateComponent = date.utc().format('YYYY-MM-DD');
-// const timeComponent = date.utc().format('HH:mm:ss');
-// console.log(dateComponent);
-// console.log(timeComponent);
 
   return (
     <Layout>
@@ -42,9 +40,10 @@ const BlogPage = () => {
           return (
             <li className='post' key={edge.node.id}>
               <Link to={`/stories/${edge.node.slug}`}>
-                <h2>{edge.node.title}</h2>
-                <p>{edge.node.author.name}</p>
-                <p>{moment(edge.node.date).utc().local().format('dddd, MMMM D, YYYY h:mm A')}</p>
+                <h2 dangerouslySetInnerHTML={{__html: edge.node.title}}></h2>
+                <p className="excerpt" dangerouslySetInnerHTML={{__html: edge.node.excerpt}}></p>
+                <div>{edge.node.author ? edge.node.author.name: 'FPREN Staff Meteorologists'}</div>
+                <div>{moment(edge.node.date).utc().local().format('dddd, MMMM D, YYYY h:mm A')}</div>
               </Link>
             </li>
           )
@@ -54,4 +53,4 @@ const BlogPage = () => {
   )
 }
 
-export default BlogPage
+export default StoryPage

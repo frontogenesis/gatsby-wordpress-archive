@@ -30,3 +30,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
+// Inform Gatsby of fields that exist which may not automatically be inferred
+exports.sourceNodes = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type wordpress__POST implements Node {
+      content: String
+    }
+  `
+  createTypes(typeDefs)
+}

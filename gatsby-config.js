@@ -13,7 +13,6 @@ module.exports = {
         hostingWPCOM: false,
         useACF: false,
         verboseOutput: false,
-        concurrentRequests: 5,
       }
     },
     'gatsby-transformer-sharp',
