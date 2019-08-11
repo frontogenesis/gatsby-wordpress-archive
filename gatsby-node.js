@@ -36,7 +36,7 @@ exports.sourceNodes = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
     type wordpress__POST implements Node {
-      content: String
+      content: String!
     }
   `
   createTypes(typeDefs)
