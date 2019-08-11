@@ -29,7 +29,6 @@ export const query = graphql`
 `
 
 const Stories = (props) => {
-
   return (
     <Layout>
       <Head title={props.data.wordpressPost.title} />
@@ -38,7 +37,7 @@ const Stories = (props) => {
       {<div className="author">{props.data.wordpressPost.author ? props.data.wordpressPost.author.name : 'FPREN Staff Meteorologists'}</div>}
       <div className="published">{moment(props.data.wordpressPost.date).utc().local().format('dddd, MMMM D, YYYY h:mm A')}</div>
       <br /><hr />
-      <div dangerouslySetInnerHTML={{ __html: props.data.wordpressPost.content}}></div>
+      <div dangerouslySetInnerHTML={{ __html: props.data.wordpressPost.content ? props.data.wordpressPost.content : 'No content was posted.' }}></div>
     </Layout>
   )
 }
