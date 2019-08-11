@@ -1,0 +1,16 @@
+.story a {
+  background: #f4f4f4;
+  color: #000000;
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.excerpt {
+  font-style: italic;
+}
+
+.author, .published {
+  color: gray;
+  font-size: 0.9rem;
+}
