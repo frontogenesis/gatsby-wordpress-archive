@@ -15,6 +15,9 @@ export const query = graphql`
       id: {
         eq: $id
       }
+      content: {
+        ne: null
+      }
     ) {
       content
       excerpt
