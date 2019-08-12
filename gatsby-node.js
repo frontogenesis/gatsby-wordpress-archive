@@ -8,7 +8,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   // They are needed to dynamically create a page for each blog post
   const res = await graphql(`
     query {
-      allWordpressPost {
+      allWordpressPost{
         edges {
           node {
             id
@@ -29,15 +29,4 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
-}
-
-// Inform Gatsby of fields that exist which may not automatically be inferred
-exports.sourceNodes = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
-    type wordpress__POST implements Node {
-      content: String!
-    }
-  `
-  createTypes(typeDefs)
 }

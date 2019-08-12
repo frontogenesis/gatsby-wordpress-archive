@@ -11,7 +11,7 @@ module.exports = {
         baseUrl: 'floridastorms.org',
         protocol: 'https',
         hostingWPCOM: false,
-        useACF: false,
+        useACF: true,
         verboseOutput: false,
       }
     },

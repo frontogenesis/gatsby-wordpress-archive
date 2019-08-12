@@ -9,15 +9,10 @@ import '../styles/stories.css'
 
 export const query = graphql`
   query(
-    $id: String!
+    $id: String!,
   ) {
     wordpressPost (
-      id: {
-        eq: $id
-      }
-      content: {
-        ne: null
-      }
+      id: { eq: $id}
     ) {
       content
       excerpt
